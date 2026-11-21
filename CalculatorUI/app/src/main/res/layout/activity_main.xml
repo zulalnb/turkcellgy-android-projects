@@ -30,69 +30,65 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/lightGray"
+            android:background="@color/lightGray"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="DEL"
             android:textColor="@color/white"
             android:textSize="24sp"
-            app:cornerRadius="0sp"
-            app:strokeWidth="0dp" />
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/btnDivide"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/lightGray"
+            android:background="@color/lightGray"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="/"
             android:textColor="@color/white"
             android:textSize="24sp"
-            app:cornerRadius="0sp"
-            app:strokeWidth="0dp" />
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/btnMultiply"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/lightGray"
+            android:background="@color/lightGray"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="x"
             android:textColor="@color/white"
             android:textSize="24sp"
-            app:cornerRadius="0sp"
-            app:strokeWidth="0dp" />
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/btnSubtract"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/lightGray"
+            android:background="@color/lightGray"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="-"
             android:textColor="@color/white"
             android:textSize="24sp"
-            app:cornerRadius="0sp"
-            app:strokeWidth="0dp" />
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/btnAdd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/lightGray"
+            android:background="@color/lightGray"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="+"
             android:textColor="@color/white"
             android:textSize="24sp"
-            app:cornerRadius="0sp" />
+            app:backgroundTint="@null" />
     </LinearLayout>
 
     <LinearLayout
@@ -109,56 +105,52 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/darkGray"
+            android:background="@color/darkGray"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="9"
             android:textColor="@color/white"
             android:textSize="36sp"
-            app:cornerRadius="0sp"
-            app:strokeWidth="0dp" />
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/btn6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/darkGray"
+            android:background="@color/darkGray"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="/"
             android:textColor="@color/white"
             android:textSize="36sp"
-            app:cornerRadius="0sp"
-            app:strokeWidth="0dp" />
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/btn3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/darkGray"
+            android:background="@color/darkGray"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="3"
             android:textColor="@color/white"
             android:textSize="36sp"
-            app:cornerRadius="0sp"
-            app:strokeWidth="0dp" />
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/btnEquals"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/darkGray"
+            android:background="@color/darkGray"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="="
             android:textColor="@color/white"
             android:textSize="36sp"
-            app:cornerRadius="0sp"
-            app:strokeWidth="0dp" />
+            app:backgroundTint="@null" />
 
     </LinearLayout>
 
@@ -176,56 +168,52 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/darkGray"
+            android:background="@color/darkGray"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="8"
             android:textColor="@color/white"
             android:textSize="36sp"
-            app:cornerRadius="0sp"
-            app:strokeWidth="0dp" />
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/btn5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/darkGray"
+            android:background="@color/darkGray"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="5"
             android:textColor="@color/white"
             android:textSize="36sp"
-            app:cornerRadius="0sp"
-            app:strokeWidth="0dp" />
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/btn2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/darkGray"
+            android:background="@color/darkGray"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="2"
             android:textColor="@color/white"
             android:textSize="36sp"
-            app:cornerRadius="0sp"
-            app:strokeWidth="0dp" />
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/btn0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/darkGray"
+            android:background="@color/darkGray"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="0"
             android:textColor="@color/white"
             android:textSize="36sp"
-            app:cornerRadius="0sp"
-            app:strokeWidth="0dp" />
+            app:backgroundTint="@null" />
 
     </LinearLayout>
 
@@ -243,56 +231,52 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/darkGray"
+            android:background="@color/darkGray"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="7"
             android:textColor="@color/white"
             android:textSize="36sp"
-            app:cornerRadius="0sp"
-            app:strokeWidth="0dp" />
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/btn4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/darkGray"
+            android:background="@color/darkGray"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="4"
             android:textColor="@color/white"
             android:textSize="36sp"
-            app:cornerRadius="0sp"
-            app:strokeWidth="0dp" />
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/btn1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/darkGray"
+            android:background="@color/darkGray"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="1"
             android:textColor="@color/white"
             android:textSize="36sp"
-            app:cornerRadius="0sp"
-            app:strokeWidth="0dp" />
+            app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/btnDecimal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/darkGray"
+            android:background="@color/darkGray"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="."
             android:textColor="@color/white"
             android:textSize="36sp"
-            app:cornerRadius="0sp"
-            app:strokeWidth="0dp" />
+            app:backgroundTint="@null"/>
 
     </LinearLayout>
 
