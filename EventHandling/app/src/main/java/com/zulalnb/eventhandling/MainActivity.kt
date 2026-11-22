@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.CompoundButton
 import android.widget.ImageView
+import android.widget.RadioGroup
 import android.widget.Switch
 import android.widget.Toast
 import android.widget.ToggleButton
@@ -45,10 +46,23 @@ class MainActivity : AppCompatActivity() {
             return@OnTouchListener true
         })
 
+        // Toggle Button ve Switch, açık kapalı durumlarını
+        // yönetmek için kullandığımız viewlardır.
         var toggleButton = findViewById<ToggleButton>(R.id.toggleButton)
         var switchBtn = findViewById<Switch>(R.id.switch1)
+
+        // Seçim yapmak istediğimiz yerlerde CheckBox kullanıyoruz.
         var checkBox = findViewById<CheckBox>(R.id.checkBox)
+
+        // Genellikle CheckBox çoklu seçim,
+        // RadioButton ise tekli seçim için kullanılır.
+        val radioGroup = findViewById<RadioGroup>(R.id.radioGroup)
+
+        // ImageView resimler eklemek ve görseller göstermek için kullanılır.
         var imageView = findViewById<ImageView>(R.id.imageView)
+
+        // WebView içerisinde web sayfası göstermemizi
+        // sağlayan bir tarayıcıdır.
         var webView = findViewById<WebView>(R.id.webView)
 
         toggleButton.setOnCheckedChangeListener(toggleButtonListener)
@@ -60,6 +74,16 @@ class MainActivity : AppCompatActivity() {
 
         checkBox.setOnCheckedChangeListener { btn: CompoundButton, status: Boolean ->
             Toast.makeText(this, "Seçim: " + status, Toast.LENGTH_LONG).show()
+        }
+
+        radioGroup.setOnCheckedChangeListener { group, checkedId ->
+            val selectedOption = when (checkedId) {
+                R.id.radioButton -> "Seçenek 1"
+                R.id.radioButton2 -> "Seçenek 2"
+                else -> "Seçim kaldırıldı"
+            }
+
+            Toast.makeText(this, selectedOption, Toast.LENGTH_SHORT).show()
         }
 
         imageView.setImageResource(R.drawable.avatar)

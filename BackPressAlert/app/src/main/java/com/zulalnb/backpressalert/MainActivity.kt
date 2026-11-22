@@ -24,6 +24,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Kullanıcıları ikaz etmek ve bilgi vermek için
+    // en sık kullanılan yapı Alert Dialog yapısıdır.
+
     fun showAlert() {
         val alertBuilder = AlertDialog.Builder(this)
         alertBuilder.setTitle("Çıkış")

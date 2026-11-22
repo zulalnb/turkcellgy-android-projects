@@ -5,16 +5,17 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B2B2B2"
+    android:background="#767676"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="101dp"
+        android:layout_height="112dp"
         android:background="@color/white"
         android:orientation="vertical"
-        android:paddingLeft="10dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/signInButton"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,35 +24,44 @@
         <EditText
             android:id="@+id/emailInput"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:ems="10"
-            android:hint="E-postanız"
-            android:inputType="text" />
+            android:hint="E-posta adresiniz"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:textColor="#37474F"
+            android:textColorHint="#757575" />
 
         <View
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@color/blue" />
+            android:background="#1976D2" />
 
         <EditText
             android:id="@+id/passwordInput"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:ems="10"
             android:hint="Şifreniz"
-            android:inputType="text" />
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:textColor="#37474F"
+            android:textColorHint="#757575" />
+
     </LinearLayout>
 
     <Button
         android:id="@+id/signInButton"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:background="@color/blue"
+        android:layout_height="112dp"
+        android:background="#1976D2"
         android:text="Giriş Yap"
         android:textAllCaps="false"
         android:textColor="@color/white"
@@ -60,8 +70,7 @@
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/linearLayout"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@id/linearLayout" />
 
     <TextView
         android:id="@+id/welcomeTextView"
@@ -88,4 +97,5 @@
         app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="@+id/signInButton"
         app:layout_constraintTop_toBottomOf="@+id/signInButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
