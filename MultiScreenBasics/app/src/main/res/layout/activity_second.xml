@@ -8,6 +8,7 @@
     android:background="@color/cardview_dark_background"
     tools:context=".SecondActivity">
 
+    <!-- DEPRECATED: android:onClick="navigateBack" -->
     <Button
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
@@ -15,7 +16,6 @@
         android:layout_marginBottom="16dp"
         android:text="← Geri Dön"
         android:textAllCaps="false"
-        android:onClick="navigateBack"
         app:layout_constraintBottom_toTopOf="@id/tvScreenTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

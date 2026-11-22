@@ -5,6 +5,7 @@ import android.app.ComponentCaller
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
@@ -35,6 +36,11 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val btnOpenSecondScreen = findViewById<Button>(R.id.btnNext)
+        btnOpenSecondScreen.setOnClickListener {
+            navigateToSecondScreen()
+        }
     }
 
 
@@ -54,7 +60,7 @@ class MainActivity : AppCompatActivity() {
     }
     */
 
-    fun navigateToSecondScreen(view: View) {
+    fun navigateToSecondScreen() {
         // Activity'ler arası geçiş yaptığımız tüm
         // durumlarda intentleri kullanacağız.
         //

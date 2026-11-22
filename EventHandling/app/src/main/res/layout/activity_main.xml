@@ -38,13 +38,12 @@
 
     </LinearLayout>
 
-    <!-- Button -->
+    <!-- DEPRECATED: android:onClick="showWarningWithXml" -->
     <Button
         android:id="@+id/btnWarn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Uyarı Göster"
-        android:onClick="showWarningWithXml" />
+        android:text="Uyarı Göster" />
 
     <!-- CheckBox ve RadioGroup -->
     <LinearLayout

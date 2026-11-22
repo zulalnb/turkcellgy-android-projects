@@ -7,12 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- DEPRECATED: android:onClick="navigateToSecondScreen" -->
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="İkinci Ekrana Git"
-        android:onClick="navigateToSecondScreen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

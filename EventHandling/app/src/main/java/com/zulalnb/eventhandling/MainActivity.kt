@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // var btnWarn = findViewById<Button>(R.id.btnWarn)
+        var btnWarn = findViewById<Button>(R.id.btnWarn)
 
         // 1 view'ın sadece 1 tane click event'i olabilir.
         // Ve siz en son ne zaman set demişseniz onu kabul eder. Eskisinin üzerine yazmış olur.
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         }) */
 
         // 2. yöntem: Listener değişkeni
-        // btnWarn.setOnClickListener(warnClickListener)
+        btnWarn.setOnClickListener(warnClickListener)
 
         window.decorView.rootView.setOnTouchListener(View.OnTouchListener { view, motionEvent ->
             Toast.makeText(this, "Ekrana dokunuldu", Toast.LENGTH_LONG).show()
@@ -96,17 +96,20 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, "Listener değişkeni ile tıklama olayı", Toast.LENGTH_LONG).show()
     }
 
-    var toggleButtonListener = CompoundButton.OnCheckedChangeListener{ btn: CompoundButton, status: Boolean ->
-        Toast.makeText(this, "toggle status: " + status, Toast.LENGTH_LONG).show()
-    }
+    var toggleButtonListener =
+        CompoundButton.OnCheckedChangeListener { btn: CompoundButton, status: Boolean ->
+            Toast.makeText(this, "toggle status: " + status, Toast.LENGTH_LONG).show()
+        }
 
-    var switchListener = CompoundButton.OnCheckedChangeListener{ btn: CompoundButton, status: Boolean ->
-        var toggleButton = findViewById<ToggleButton>(R.id.toggleButton)
-        toggleButton.visibility = if (status) View.VISIBLE else View.INVISIBLE
-    }
+    var switchListener =
+        CompoundButton.OnCheckedChangeListener { btn: CompoundButton, status: Boolean ->
+            var toggleButton = findViewById<ToggleButton>(R.id.toggleButton)
+            toggleButton.visibility = if (status) View.VISIBLE else View.INVISIBLE
+        }
 
-
-    fun showWarningWithXml(view: View) {
+    /* DEPRECATED
+    fun showWarningWithXml() {
         Toast.makeText(this, "XML onClick ile tıklama olayı", Toast.LENGTH_LONG).show()
     }
+    */
 }
