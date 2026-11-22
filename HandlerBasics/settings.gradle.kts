@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "HandlerBasics"
+rootProject.name = "Handler Basics"
 include(":app")

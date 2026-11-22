@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Post işlemi çalıştırıldı.", Toast.LENGTH_SHORT).show()
         }
 
-        Handler(Looper.getMainLooper()).postDelayed({
+        Handler(mainLooper).postDelayed({
             Toast.makeText(this, "Delayed işlemi çalıştırıldı.", Toast.LENGTH_SHORT).show()
         }, 6000)
     }
