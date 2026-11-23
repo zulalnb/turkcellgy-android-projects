@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    /* DEPRECATED
+    /* @Deprecated("Deprecated in Java")
     override fun onActivityResult(
         requestCode: Int,
         resultCode: Int,
