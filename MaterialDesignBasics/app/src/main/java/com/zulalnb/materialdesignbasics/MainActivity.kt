@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -65,6 +66,21 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         setTitle("Android")
         toolbar.setTitleTextColor(resources.getColor(R.color.blue))
+
+        val bottomNavigation: BottomNavigationView = findViewById(R.id.bottomNav)
+        bottomNavigation.setOnNavigationItemSelectedListener{ item ->
+            when(item.itemId) {
+                R.id.signIn -> {
+                    Toast.makeText(this, "Giriş ekranı", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.detail -> {
+                    Toast.makeText(this, "Detay ekranı", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
     fun validateForm() {
