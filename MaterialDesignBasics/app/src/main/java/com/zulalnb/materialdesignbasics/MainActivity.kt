@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
             insets
         }
 
@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         toolbar.setTitleTextColor(resources.getColor(R.color.blue))
 
         val bottomNavigation: BottomNavigationView = findViewById(R.id.bottomNav)
-        bottomNavigation.setOnNavigationItemSelectedListener{ item ->
+        bottomNavigation.setOnItemSelectedListener{ item ->
             when(item.itemId) {
                 R.id.signIn -> {
                     Toast.makeText(this, "Giriş ekranı", Toast.LENGTH_SHORT).show()
