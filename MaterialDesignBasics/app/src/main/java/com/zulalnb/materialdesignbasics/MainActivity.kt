@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, 0, systemBars.right, systemBars.bottom)
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
@@ -59,6 +60,11 @@ class MainActivity : AppCompatActivity() {
         // Toolbar, uygulama genelinde veya bir bölümünde üst kısımda sabit olarak kullanılan yapıdır.
         // Toolbar, AppBarLayout içerisinde konumlandırılır.
         // AppBarLayout içerisindeki elemanlara animasyon şeklinde işlevler tanımlamamızı sağlar.
+
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        setTitle("Android")
+        toolbar.setTitleTextColor(resources.getColor(R.color.blue))
     }
 
     fun validateForm() {
