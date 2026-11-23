@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#990F172A"
+    android:padding="24dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/popupCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Warning Icon -->
+        <ImageView
+            android:id="@+id/ivPopupIcon"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/ic_warning"
+            android:contentDescription="Uyarı"
+            android:scaleType="centerInside"
+            app:tint="#E58A19"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvPopupTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="İşleme Devam Edilsin mi?"
+            android:textColor="#172033"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/ivPopupIcon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Message -->
+        <TextView
+            android:id="@+id/tvPopupMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:text="Bu işlemi gerçekleştirmek istediğinizden emin misiniz?"
+            android:textColor="#64748B"
+            android:textSize="15sp"
+            app:layout_constraintTop_toBottomOf="@id/tvPopupTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Cancel Button -->
+        <Button
+            android:id="@+id/btnPopupCancel"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="6dp"
+            android:text="Hayır"
+            android:textAllCaps="false"
+            android:textColor="#334155"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:backgroundTint="#F1F5F9"
+            app:cornerRadius="10dp"
+            app:rippleColor="#CBD5E1"
+            app:strokeWidth="0dp"
+            app:layout_constraintTop_toBottomOf="@id/tvPopupMessage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnPopupConfirm"
+            app:layout_constraintHorizontal_chainStyle="spread" />
+
+        <!-- Confirm Button -->
+        <Button
+            android:id="@+id/btnPopupConfirm"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginStart="6dp"
+            android:text="Evet, devam et"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:backgroundTint="#E58A19"
+            app:cornerRadius="10dp"
+            app:rippleColor="#C9770D"
+            app:strokeWidth="0dp"
+            app:layout_constraintTop_toBottomOf="@id/tvPopupMessage"
+            app:layout_constraintStart_toEndOf="@id/btnPopupCancel"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
