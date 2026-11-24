@@ -1,41 +1,40 @@
 # Material Design Basics
 
-Bu proje, Android uygulamalarında Material Design bileşenlerinin kullanımını ve XML üzerinden modern arayüzler oluşturmayı ele alır.
+Bu proje, Android uygulamalarında Material Design bileşenlerinin kullanımını ve XML üzerinden arayüz oluşturmayı öğrenmek amacıyla hazırlanmıştır.
 
-Projede AppBar, Toolbar, CardView, TextInputLayout, FloatingActionButton ve BottomNavigationView gibi bileşenler kullanılmıştır. Ayrıca form alanında e-posta doğrulaması, Toolbar yapılandırması ve kullanıcı etkileşimleri ele alınmıştır.
+Projede AppBarLayout, Toolbar, CardView, TextInputLayout, FloatingActionButton ve BottomNavigationView gibi arayüz bileşenleri kullanılmıştır. Ayrıca e-posta doğrulama, Toolbar yapılandırması ve kullanıcı etkileşimlerinin yönetimi ele alınmıştır.
 
 Uygulamanın teması `Theme.Material3.DayNight.NoActionBar` olarak yapılandırılmıştır.
 
 ## Ekran Görüntüsü
 
 <p align="center">
-  <img src="./screenshots/home.png" alt="Material Design Basics uygulaması" width="300">
+  <img src="./screenshots/home.png" alt="Material Design Basics uygulama ekranı" width="300" />
 </p>
 
 ## Ele Alınan Konular
 
 - Material Design ve Material Components
-- Material 3 tema yapılandırması
-- `AppBarLayout`
-- `CollapsingToolbarLayout`
-- `Toolbar`
+- Material 3 DayNight tema yapılandırması
+- `AppBarLayout` ve `Toolbar`
 - `CardView`
 - `TextInputLayout` ve `TextInputEditText`
+- `Patterns.EMAIL_ADDRESS` ile e-posta doğrulama
 - `FloatingActionButton`
 - `BottomNavigationView`
-- `NestedScrollView`
-- XML layout tasarımı
-- E-posta formatı doğrulama
-- Toolbar yapılandırması
 - `ContextCompat.getColor()`
+- Edge-to-edge ekran düzeni
+- `WindowInsetsCompat` ile sistem çubuklarının yönetimi
 
 ## 1. Material Design Nedir?
 
-Material Design, Google tarafından geliştirilen bir tasarım sistemidir. Android uygulamalarında tutarlı, erişilebilir ve kullanıcı dostu arayüzler oluşturmak için bileşenler, renkler, tipografi ve etkileşim kuralları sunar.
+Material Design, Google tarafından geliştirilen bir tasarım sistemidir. Android uygulamalarında tutarlı ve kullanıcı dostu arayüzler oluşturmak için bileşenler, renkler, tipografi ve etkileşim kuralları sunar.
 
 Android projelerinde Material Design bileşenlerini kullanabilmek için Material Components kütüphanesinden yararlanılabilir.
 
-Projede kullanılan temel tema:
+### Material 3 DayNight Teması
+
+Projede kullanılan tema:
 
 ```xml
 <style name="Base.Theme.MaterialDesignBasics"
@@ -44,37 +43,63 @@ Projede kullanılan temel tema:
 </style>
 ```
 
-`Theme.Material3.DayNight.NoActionBar`, Material 3 tasarım sistemini temel alan ve açık/koyu tema desteği sunan bir temadır. `NoActionBar` sayesinde varsayılan ActionBar gösterilmez. Böylece uygulama kendi Toolbar bileşenini kullanabilir.
+`Theme.Material3.DayNight.NoActionBar`, Material 3 tasarım sistemini temel alan ve açık/koyu tema desteği sunan bir temadır.
 
-## 2. AppBarLayout ve CollapsingToolbarLayout
+- `Material3`: Material Design 3 tema özelliklerini kullanır.
+- `DayNight`: Sistem temasına göre açık veya koyu görünümün kullanılmasını sağlar.
+- `NoActionBar`: Varsayılan ActionBar'ı devre dışı bırakır. Böylece uygulama kendi Toolbar bileşenini kullanabilir.
 
-`AppBarLayout`, uygulamanın üst bölümündeki AppBar alanını yönetmek için kullanılan bir Material Components bileşenidir.
+## 2. AppBarLayout ve Toolbar
 
-`CollapsingToolbarLayout` ise kaydırma sırasında Toolbar alanının genişleyip daralmasına imkân tanır.
+### AppBarLayout
 
-Projede bu bileşenler, ekranın üst bölümündeki başlık alanını oluşturmak için kullanılmıştır.
+`AppBarLayout`, Material Components kütüphanesinde bulunan ve uygulamanın üst bölümündeki AppBar alanını oluşturmak için kullanılan bir bileşendir.
 
-`AppBarLayout` genellikle `CoordinatorLayout` içerisinde kullanılır. Bu yapı, AppBar ile kaydırılabilir içerik arasındaki scroll koordinasyonunu sağlar.
+Genellikle Toolbar gibi üst çubuk bileşenlerini kapsar. `CoordinatorLayout` ile birlikte kullanıldığında kaydırılabilir içerikle koordineli davranışlar da sağlayabilir.
 
-## 3. Toolbar
+Bu projede AppBarLayout, Toolbar bileşenini kapsayan bir container olarak kullanılmıştır.
 
-`Toolbar`, uygulamanın üst kısmında başlık ve işlem alanı oluşturmak için kullanılır.
+```xml
+<com.google.android.material.appbar.AppBarLayout
+    android:id="@+id/appBarLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-Projede Toolbar, Activity içerisinde ActionBar olarak atanmıştır:
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
 
-```kotlin
-setSupportActionBar(toolbar)
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Yeni Android"
+            android:textColor="@color/white" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+</com.google.android.material.appbar.AppBarLayout>
 ```
 
-Bu işlemden sonra Toolbar, Activity'nin ActionBar'ı olarak kullanılabilir.
+### Toolbar
 
-Başlık metnini değiştirmek için:
+`Toolbar`, uygulamanın üst kısmında başlık ve işlem alanı oluşturmak için kullanılan bir arayüz bileşenidir.
+
+Projede Toolbar, Activity'nin ActionBar bileşeni olarak atanmıştır:
 
 ```kotlin
+val toolbar = findViewById<Toolbar>(R.id.toolbar)
+
+setSupportActionBar(toolbar)
 setTitle("Android")
 ```
 
-Toolbar başlık rengini değiştirmek için `setTitleTextColor()` metodu kullanılmıştır:
+- `findViewById()`: XML içerisinde tanımlanan Toolbar bileşenine erişir.
+- `setSupportActionBar()`: Toolbar'ı Activity'nin desteklenen ActionBar yapısına entegre eder.
+- `setTitle()`: Activity başlığını belirler.
+
+Toolbar başlığının rengini değiştirmek için `setTitleTextColor()` metodu kullanılmıştır:
 
 ```kotlin
 toolbar.setTitleTextColor(
@@ -82,7 +107,7 @@ toolbar.setTitleTextColor(
 )
 ```
 
-Burada `ContextCompat.getColor()` kullanılarak renk kaynağından renk değeri alınır.
+`ContextCompat.getColor()`, AndroidX Core kütüphanesinin sağladığı uyumluluk metodudur. Belirtilen renk kaynağının renk değerini Context üzerinden elde etmeyi sağlar.
 
 Gerekli import:
 
@@ -90,111 +115,170 @@ Gerekli import:
 import androidx.core.content.ContextCompat
 ```
 
-`ContextCompat.getColor()` AndroidX Core kütüphanesinin sunduğu uyumluluk metodudur. Eski `resources.getColor()` kullanımına göre tercih edilebilir ve farklı Android sürümlerinde renk kaynağına erişimi kolaylaştırır.
-
-## 4. CardView
+## 3. CardView
 
 `CardView`, içerikleri kart görünümünde sunmak için kullanılan AndroidX bileşenidir.
 
-Kart görünümüne köşe yuvarlaklığı ve elevation gibi görsel özellikler kazandırılabilir.
+Kart görünümüne yuvarlatılmış köşeler ve elevation gibi görsel özellikler kazandırılabilir.
 
-Projede form ve içerik alanlarının görsel olarak ayrıştırılmasında kullanılmıştır.
+Projede CardView, `LinearLayout` içerisinde konumlandırılarak içerik alanı oluşturmak için kullanılmıştır.
 
-CardView, Material Components kütüphanesindeki bir bileşen değildir; AndroidX kütüphanesinin parçasıdır.
+```xml
+<androidx.cardview.widget.CardView
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp">
 
-## 5. TextInputLayout ve TextInputEditText
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:padding="20dp" />
 
-`TextInputLayout`, metin giriş alanlarına Material Design görünümü ve ek etkileşim özellikleri kazandırır.
+</androidx.cardview.widget.CardView>
+```
+
+`app:cardCornerRadius` özelliği kartın köşe yuvarlaklığını belirler.
+
+**Not:** CardView, Material Components kütüphanesinin değil, AndroidX CardView kütüphanesinin bir bileşenidir.
+
+## 4. TextInputLayout ve TextInputEditText
+
+`TextInputLayout`, metin giriş alanlarına Material Design görünümü ve ek etkileşim özellikleri kazandıran bir bileşendir.
 
 `TextInputEditText` ise kullanıcının metin girişi yaptığı alandır.
 
-Projede e-posta girişi için bu bileşenler birlikte kullanılmıştır:
+Projede e-posta adresi almak için bu iki bileşen birlikte kullanılmıştır:
 
 ```xml
 <com.google.android.material.textfield.TextInputLayout
-    ...>
+    android:id="@+id/tilUser"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content">
 
     <com.google.android.material.textfield.TextInputEditText
-        ...
-        android:inputType="textEmailAddress" />
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="E-posta" />
 
 </com.google.android.material.textfield.TextInputLayout>
 ```
 
-`TextInputLayout` üzerinden giriş alanına hata mesajı eklenebilir:
+`TextInputLayout`, giriş alanının etiketini ve hata mesajlarını yönetmeye yardımcı olur.
+
+Giriş alanında hata göstermek için `error` özelliği kullanılabilir:
 
 ```kotlin
-textInputLayout.error = "Geçerli bir e-posta adresi giriniz."
+tilUser.error = "Geçerli bir e-posta adresi giriniz"
+tilUser.isErrorEnabled = true
 ```
 
-Bu sayede doğrulama sonucunda kullanıcıya ilgili alanın altında hata mesajı gösterilebilir.
+Hata durumunu kaldırmak için:
 
-## 6. E-posta Doğrulama
+```kotlin
+tilUser.isErrorEnabled = false
+```
+
+## 5. E-posta Doğrulama
 
 Projede e-posta adresinin biçimini kontrol etmek için Android'in `Patterns.EMAIL_ADDRESS` yapısı kullanılmıştır.
 
-```kotlin
-val email = textInputEditText.text.toString()
+Gönder butonuna tıklandığında `validateForm()` metodu çağrılarak giriş kontrol edilir.
 
-if (Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-    textInputLayout.error = null
-} else {
-    textInputLayout.error = "Geçerli bir e-posta adresi giriniz."
+```kotlin
+fun validateForm() {
+    val tilUser = findViewById<TextInputLayout>(R.id.tilUser)
+    val etEmail = findViewById<TextInputEditText>(R.id.etEmail)
+
+    val email = etEmail.text.toString().trim()
+
+    if (email.isEmpty()) {
+        tilUser.error = "Email adresi boş olamaz"
+        tilUser.isErrorEnabled = true
+    } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        tilUser.error = "Geçerli bir email adresi giriniz"
+        tilUser.isErrorEnabled = true
+    } else {
+        tilUser.isErrorEnabled = false
+    }
 }
 ```
 
-`Patterns.EMAIL_ADDRESS`, girilen metnin e-posta adresi biçimine uygun olup olmadığını kontrol eder.
+Burada kullanılan metot ve özellikler:
 
-Bu kontrol yalnızca biçim doğrulamasıdır. E-posta adresinin gerçekten var olduğunu veya kullanıcıya ait olduğunu doğrulamaz.
+- `text.toString()`: EditText içerisindeki metni String türüne dönüştürür.
+- `trim()`: Metnin başındaki ve sonundaki boşluk karakterlerini temizler.
+- `isEmpty()`: Giriş alanının boş olup olmadığını kontrol eder.
+- `Patterns.EMAIL_ADDRESS`: E-posta adresi biçimi için Android tarafından sağlanan hazır desendir.
+- `matcher(email).matches()`: Girilen metnin ilgili desenle eşleşip eşleşmediğini kontrol eder.
+- `isErrorEnabled`: TextInputLayout üzerindeki hata durumunu etkinleştirir veya devre dışı bırakır.
 
-## 7. FloatingActionButton
+Bu kontrol yalnızca e-posta adresinin biçimini doğrular. Adresin gerçekten var olduğunu veya kullanıcıya ait olduğunu doğrulamaz.
 
-`FloatingActionButton` (FAB), ekranda öne çıkan temel bir işlemi temsil etmek için kullanılan Material Design bileşenidir.
+## 6. FloatingActionButton
 
-Projede FAB tıklama olayı bir Toast mesajı gösterecek şekilde tanımlanmıştır:
+`FloatingActionButton` (FAB), ekranda öne çıkarılmak istenen temel bir işlemi temsil etmek için kullanılan Material Design bileşenidir.
+
+Genellikle ekranın sağ alt bölümünde konumlandırılır ve kullanıcıya önemli bir işleve hızlı erişim sağlar.
+
+Projede FAB tıklama olayı `setOnClickListener()` ile yönetilmiştir:
 
 ```kotlin
+val fab = findViewById<FloatingActionButton>(
+    R.id.floatingActionButton
+)
+
 fab.setOnClickListener {
     Toast.makeText(
         this,
-        "FAB clicked",
+        "fab",
         Toast.LENGTH_SHORT
     ).show()
 }
 ```
 
-FAB genellikle kullanıcıların sık gerçekleştirdiği temel işlemlere hızlı erişim sağlamak için kullanılır.
+Bu örnekte butona tıklandığında kısa süreli bir Toast mesajı gösterilir.
 
-## 8. BottomNavigationView
+## 7. BottomNavigationView
 
-`BottomNavigationView`, uygulamanın alt bölümünde birden fazla ana ekran veya bölüm arasında geçiş yapmak için kullanılan Material Components bileşenidir.
+`BottomNavigationView`, uygulamanın alt bölümünde ana ekranlar veya içerik bölümleri arasında geçiş yapılmasını sağlayan Material Components bileşenidir.
 
-Projede menü öğeleri ayrı bir XML dosyasında tanımlanmıştır:
+Projede menü öğeleri `bottom_navigation_menu.xml` dosyasında tanımlanmış ve BottomNavigationView içerisine atanmıştır.
 
 ```xml
-<item
-    android:id="@+id/signIn"
-    android:title="Sign In"
-    ... />
-
-<item
-    android:id="@+id/detail"
-    android:title="Detail"
-    ... />
+<com.google.android.material.bottomnavigation.BottomNavigationView
+    android:id="@+id/bottomNav"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    app:menu="@menu/bottom_navigation_menu" />
 ```
 
-Menü öğelerine tıklama olayları `setOnItemSelectedListener()` ile dinlenir:
+Menü öğelerinin seçilme olayları `setOnItemSelectedListener()` metodu ile dinlenir:
 
 ```kotlin
-bottomNavigationView.setOnItemSelectedListener { item ->
+val bottomNavigation: BottomNavigationView =
+    findViewById(R.id.bottomNav)
+
+bottomNavigation.setOnItemSelectedListener { item ->
     when (item.itemId) {
         R.id.signIn -> {
-            Toast.makeText(this, "Sign In", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                "Giriş ekranı",
+                Toast.LENGTH_SHORT
+            ).show()
             true
         }
 
         R.id.detail -> {
-            Toast.makeText(this, "Detail", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                "Detay ekranı",
+                Toast.LENGTH_SHORT
+            ).show()
             true
         }
 
@@ -203,51 +287,92 @@ bottomNavigationView.setOnItemSelectedListener { item ->
 }
 ```
 
-Bu projede menü öğelerine tıklandığında Toast mesajı gösterilmektedir. Gerçek ekran veya Fragment navigasyonu uygulanmamıştır.
+`item.itemId` üzerinden seçilen menü öğesinin ID değeri kontrol edilir.
 
-## 9. NestedScrollView
+- `true`: Seçilen menü öğesinin işlendiğini belirtir.
+- `false`: Seçimin işlenmediğini belirtir.
 
-`NestedScrollView`, içeriğin ekran boyutunu aşması durumunda kaydırılabilir bir alan oluşturur.
+Bu projede menü öğelerine tıklandığında ilgili Toast mesajı gösterilir. Gerçek Activity veya Fragment navigasyonu uygulanmamıştır.
 
-Ayrıca iç içe kaydırılabilir bileşenlerle çalışabilmesi için nested scrolling desteği sunar.
+## 8. Edge-to-Edge ve Window Insets
 
-Projede form alanlarının ekran boyutunu aşması durumunda dikey kaydırma sağlamak için kullanılmıştır.
+Edge-to-edge yaklaşımı, uygulamanın içerik alanının sistem çubuklarının arkasına kadar uzanmasını sağlar.
 
-## 10. Projede Kullanılan Diğer Bileşenler
+Projede edge-to-edge ekran düzenini etkinleştirmek için `enableEdgeToEdge()` metodu kullanılmıştır.
 
-| Bileşen | Kullanım amacı |
-| --- | --- |
-| `AppBarLayout` | Üst uygulama çubuğunu yönetmek |
-| `CollapsingToolbarLayout` | Kaydırma sırasında daralıp genişleyen başlık alanı oluşturmak |
-| `Toolbar` | Uygulama başlığı ve üst işlem alanı |
-| `CardView` | Kart görünümünde içerik sunmak |
-| `TextInputLayout` | Metin giriş alanlarına Material görünümü ve hata göstergesi eklemek |
-| `TextInputEditText` | Kullanıcıdan metin almak |
-| `FloatingActionButton` | Öne çıkan bir işlem sunmak |
-| `BottomNavigationView` | Alt navigasyon menüsü oluşturmak |
-| `NestedScrollView` | Kaydırılabilir içerik alanı oluşturmak |
+Sistem çubuklarının içerikle çakışmasını önlemek için `WindowInsetsCompat` üzerinden alınan boşluk değerleri kök görünüme uygulanmıştır.
 
-## Öğrenilenler
+```kotlin
+enableEdgeToEdge()
 
-- Material Design ve Material 3 tema yapılandırması
-- Material Components bileşenlerinin XML içerisinde kullanımı
-- AppBar ve Toolbar yapılandırması
-- CollapsingToolbarLayout ile daralabilir başlık alanı oluşturmak
-- CardView ile kart görünümü oluşturmak
-- TextInputLayout ile form alanlarını düzenlemek
-- Patterns.EMAIL_ADDRESS ile e-posta formatı kontrolü
-- FloatingActionButton tıklama olaylarını yönetmek
-- BottomNavigationView menü öğelerini dinlemek
-- NestedScrollView ile kaydırılabilir içerik oluşturmak
-- ContextCompat ile kaynaklardan renk değerlerini almak
+ViewCompat.setOnApplyWindowInsetsListener(
+    findViewById(R.id.main)
+) { view, insets ->
+
+    val systemBars = insets.getInsets(
+        WindowInsetsCompat.Type.systemBars()
+    )
+
+    view.setPadding(
+        systemBars.left,
+        systemBars.top,
+        systemBars.right,
+        0
+    )
+
+    insets
+}
+```
+
+- `enableEdgeToEdge()`: Uygulamanın edge-to-edge ekran düzenini kullanmasını sağlar.
+- `ViewCompat.setOnApplyWindowInsetsListener()`: Kök View üzerine sistem boşlukları uygulandığında çalışacak listener tanımlar.
+- `WindowInsetsCompat.Type.systemBars()`: Durum çubuğu ve gezinme çubuğu gibi sistem çubuklarının kapladığı alanları belirtir.
+- `getInsets()`: İlgili kenarlara uygulanması gereken boşluk değerlerini döndürür.
+- `setPadding()`: Alınan değerleri kök görünüme uygular.
+
+Bu projede sol, üst ve sağ inset değerleri padding olarak uygulanırken alt padding `0` olarak belirlenmiştir.
+
+## Uygulama Akışı
+
+1. Uygulama başlatılır ve `MainActivity` açılır.
+2. `enableEdgeToEdge()` ile edge-to-edge ekran düzeni etkinleştirilir.
+3. `activity_main.xml` dosyası `setContentView()` ile yüklenir.
+4. `WindowInsetsCompat` kullanılarak sistem çubuklarının boşlukları kök görünüme uygulanır.
+5. Toolbar, `setSupportActionBar()` ile Activity'nin ActionBar yapısına entegre edilir.
+6. FloatingActionButton için tıklama olayı tanımlanır.
+7. Gönder butonuna tıklandığında `validateForm()` metodu çağrılır ve e-posta alanı doğrulanır.
+8. BottomNavigationView için menü öğesi seçme listener'ı tanımlanır.
+9. Seçilen menü öğesine göre kullanıcıya Toast mesajı gösterilir.
 
 ## Kullanılan Teknolojiler
 
 - Kotlin
 - Android SDK
 - Material Components for Android
+- Material 3 DayNight Theme
 - AndroidX AppCompat
-- AndroidX Core
+- AndroidX Core KTX
 - AndroidX CardView
 - ConstraintLayout
-- XML Layouts
+- LinearLayout
+- XML Layout
+- Toolbar
+- AppBarLayout
+- TextInputLayout
+- FloatingActionButton
+- BottomNavigationView
+- WindowInsetsCompat
+
+## Öğrenme Kazanımları
+
+- Material Design ve Material 3 tema yapılandırmasını öğrenme.
+- Material Components bileşenlerini XML içerisinde kullanma.
+- AppBarLayout ve Toolbar yapılandırmasını anlama.
+- Toolbar'ı Activity'nin ActionBar yapısına entegre etme.
+- CardView ile kart görünümü oluşturma.
+- TextInputLayout ile form alanlarını düzenleme ve hata mesajı gösterme.
+- `Patterns.EMAIL_ADDRESS` ile e-posta biçimini kontrol etme.
+- FloatingActionButton tıklama olaylarını yönetme.
+- BottomNavigationView menü öğelerinin seçim olaylarını dinleme.
+- `ContextCompat.getColor()` ile renk kaynaklarına erişme.
+- Edge-to-edge ekran düzenini ve WindowInsets yönetimini uygulama.
