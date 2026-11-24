@@ -1,0 +1,91 @@
+<resources>
+    <string name="app_name">Country ListView</string>
+
+    <string-array name="country_names">
+        <item>Almanya</item>
+        <item>Amerika Birleşik Devletleri</item>
+        <item>Arjantin</item>
+        <item>Avustralya</item>
+        <item>Avusturya</item>
+        <item>Azerbaycan</item>
+        <item>Belçika</item>
+        <item>Birleşik Krallık</item>
+        <item>Brezilya</item>
+        <item>Cezayir</item>
+        <item>Çin</item>
+        <item>Danimarka</item>
+        <item>Etiyopya</item>
+        <item>Fas</item>
+        <item>Filipinler</item>
+        <item>Finlandiya</item>
+        <item>Fransa</item>
+        <item>Güney Afrika</item>
+        <item>Güney Kore</item>
+        <item>Hindistan</item>
+        <item>Hollanda</item>
+        <item>Irak</item>
+        <item>İran</item>
+        <item>İspanya</item>
+        <item>İsveç</item>
+        <item>İsviçre</item>
+        <item>İtalya</item>
+        <item>Japonya</item>
+        <item>Kanada</item>
+        <item>Katar</item>
+        <item>Meksika</item>
+        <item>Mısır</item>
+        <item>Norveç</item>
+        <item>Pakistan</item>
+        <item>Polonya</item>
+        <item>Portekiz</item>
+        <item>Rusya</item>
+        <item>Suudi Arabistan</item>
+        <item>Türkiye</item>
+        <item>Ukrayna</item>
+        <item>Yunanistan</item>
+    </string-array>
+
+    <array name="country_flags">
+        <item>@mipmap/flag_de</item>
+        <item>@mipmap/flag_us</item>
+        <item>@mipmap/flag_ar</item>
+        <item>@mipmap/flag_au</item>
+        <item>@mipmap/flag_at</item>
+        <item>@mipmap/flag_az</item>
+        <item>@mipmap/flag_be</item>
+        <item>@mipmap/flag_gb</item>
+        <item>@mipmap/flag_br</item>
+        <item>@mipmap/flag_dz</item>
+        <item>@mipmap/flag_cn</item>
+        <item>@mipmap/flag_dk</item>
+        <item>@mipmap/flag_et</item>
+        <item>@mipmap/flag_ma</item>
+        <item>@mipmap/flag_ph</item>
+        <item>@mipmap/flag_fi</item>
+        <item>@mipmap/flag_fr</item>
+        <item>@mipmap/flag_za</item>
+        <item>@mipmap/flag_kr</item>
+        <item>@mipmap/flag_in</item>
+        <item>@mipmap/flag_nl</item>
+        <item>@mipmap/flag_iq</item>
+        <item>@mipmap/flag_ir</item>
+        <item>@mipmap/flag_es</item>
+        <item>@mipmap/flag_se</item>
+        <item>@mipmap/flag_ch</item>
+        <item>@mipmap/flag_it</item>
+        <item>@mipmap/flag_jp</item>
+        <item>@mipmap/flag_ca</item>
+        <item>@mipmap/flag_qa</item>
+        <item>@mipmap/flag_mx</item>
+        <item>@mipmap/flag_eg</item>
+        <item>@mipmap/flag_no</item>
+        <item>@mipmap/flag_pk</item>
+        <item>@mipmap/flag_pl</item>
+        <item>@mipmap/flag_pt</item>
+        <item>@mipmap/flag_ru</item>
+        <item>@mipmap/flag_sa</item>
+        <item>@mipmap/flag_tr</item>
+        <item>@mipmap/flag_ua</item>
+        <item>@mipmap/flag_gr</item>
+    </array>
+</resources>
