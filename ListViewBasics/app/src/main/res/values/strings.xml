@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">List View Basics</string>
+
+    <string-array name="fruits">
+        <item>Elma</item>
+        <item>Muz</item>
+        <item>Portakal</item>
+        <item>Çilek</item>
+        <item>Karpuz</item>
+        <item>Ananas</item>
+        <item>Mango</item>
+        <item>Üzüm</item>
+        <item>Şeftali</item>
+        <item>Kiraz</item>
+        <item>Armut</item>
+        <item>Erik</item>
+        <item>Kayısı</item>
+        <item>Nar</item>
+        <item>İncir</item>
+        <item>Avokado</item>
+        <item>Hurma</item>
+        <item>Greyfurt</item>
+        <item>Mandarin</item>
+        <item>Limon</item>
+        <item>Kiraz</item>
+        <item>Vişne</item>
+        <item>Yaban mersini</item>
+        <item>Böğürtlen</item>
+        <item>Ahududu</item>
+        <item>Hindistan cevizi</item>
+        <item>Ejder meyvesi</item>
+        <item>Passiflora</item>
+        <item>Pomelo</item>
+        <item>Liçi</item>
+        <item>Guava</item>
+        <item>Papaya</item>
+        <item>Ayva</item>
+        <item>Trabzon hurması</item>
+        <item>Kızılcık</item>
+        <item>Dut</item>
+        <item>Frenk üzümü</item>
+        <item>Yıldız meyvesi</item>
+        <item>Kavun</item>
+        <item>Çarkıfelek</item>
+        <item>Kivi</item>
+        <item>Jackfruit</item>
+        <item>Durian</item>
+        <item>Longan</item>
+        <item>Rambutan</item>
+        <item>Kumkuat</item>
+        <item>Demirhindi</item>
+        <item>Karadut</item>
+    </string-array>
+</resources>
