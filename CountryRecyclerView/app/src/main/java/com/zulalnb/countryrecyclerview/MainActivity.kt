@@ -2,6 +2,7 @@ package com.zulalnb.countryrecyclerview
 
 import android.content.res.TypedArray
 import android.os.Bundle
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -13,8 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
 
-    private val countryList = ArrayList<Country>()
-    private var isLastPage = false
+    private lateinit var adapter: CountryAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,10 +26,12 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        createCountryList()
+        val allCountries = loadAllCountriesFromResources()
 
         val rvCountries = findViewById<RecyclerView>(R.id.rvCountries)
-        val adapter = CountryAdapter(countryList, this::onItemClick)
+        val searchView = findViewById<SearchView>(R.id.searchView)
+
+        adapter = CountryAdapter(allCountries, this::onItemClick)
         rvCountries.adapter = adapter
 
         val layoutManager = LinearLayoutManager(this)
@@ -46,41 +48,42 @@ class MainActivity : AppCompatActivity() {
                 if (dy <= 0) return
 
                 val lastItem = layoutManager.findLastVisibleItemPosition()
-
-                if (!isLastPage && lastItem >= countryList.size - 4) {
-
-                    val previousSize = countryList.size
-                    val addedCount = createCountryList(offset = previousSize, limit = 20)
-
-                    if (addedCount > 0) {
-                        adapter.notifyItemRangeInserted(previousSize, addedCount)
-                    } else {
-                        isLastPage = true
-                    }
+                if (lastItem >= adapter.itemCount - 4) {
+                    adapter.loadNextPage()
                 }
+            }
+        })
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextChange(newText: String?): Boolean {
+                adapter.filter.filter(newText)
+                return true
+            }
+
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                adapter.filter.filter(query)
+                return true
             }
         })
 
     }
 
     private fun onItemClick(position: Int) {
-        Toast.makeText(this, countryList[position].name, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, adapter.countries[position].name, Toast.LENGTH_SHORT).show()
     }
 
-    private fun createCountryList(offset: Int = 0, limit: Int = 20): Int {
+    private fun loadAllCountriesFromResources(): List<Country> {
+        val list = ArrayList<Country>()
         val names: Array<String> = resources.getStringArray(R.array.country_names)
         val flags: TypedArray = resources.obtainTypedArray(R.array.country_flags)
 
-        val start = offset.coerceAtLeast(0)
-        val end = minOf(names.size, start + limit)
-
-        for (i in start until end) {
+        for (i in names.indices) {
             val name = names[i]
             val flagId = flags.getResourceId(i, 0)
-            countryList.add(Country(name, flagId))
+            list.add(Country(name, flagId))
         }
 
         flags.recycle()
-        return end - start
+        return list
     }
 }
