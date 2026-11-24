@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 class MainActivity : AppCompatActivity() {
 
     private val countryList = ArrayList<Country>()
+    private var isLastPage = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,22 +39,48 @@ class MainActivity : AppCompatActivity() {
 
         rvCountries.addItemDecoration(DividerItemDecoration(this, layoutManager.orientation))
 
+        rvCountries.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                if (dy <= 0) return
+
+                val lastItem = layoutManager.findLastVisibleItemPosition()
+
+                if (!isLastPage && lastItem >= countryList.size - 4) {
+
+                    val previousSize = countryList.size
+                    val addedCount = createCountryList(offset = previousSize, limit = 20)
+
+                    if (addedCount > 0) {
+                        adapter.notifyItemRangeInserted(previousSize, addedCount)
+                    } else {
+                        isLastPage = true
+                    }
+                }
+            }
+        })
+
     }
 
     private fun onItemClick(position: Int) {
         Toast.makeText(this, countryList[position].name, Toast.LENGTH_SHORT).show()
     }
 
-    private fun createCountryList() {
+    private fun createCountryList(offset: Int = 0, limit: Int = 20): Int {
         val names: Array<String> = resources.getStringArray(R.array.country_names)
         val flags: TypedArray = resources.obtainTypedArray(R.array.country_flags)
 
-        for (i in names.indices) {
+        val start = offset.coerceAtLeast(0)
+        val end = minOf(names.size, start + limit)
+
+        for (i in start until end) {
             val name = names[i]
             val flagId = flags.getResourceId(i, 0)
             countryList.add(Country(name, flagId))
         }
 
         flags.recycle()
+        return end - start
     }
 }
