@@ -25,9 +25,9 @@ class MainActivity : AppCompatActivity() {
         createCountryList()
 
         val adapter = CountryAdapter(this, countryList)
-        val lvCountry = findViewById<ListView>(R.id.lvCountry)
+        val lvCountries = findViewById<ListView>(R.id.lvCountries)
 
-        lvCountry.adapter = adapter
+        lvCountries.adapter = adapter
     }
 
     private fun createCountryList() {

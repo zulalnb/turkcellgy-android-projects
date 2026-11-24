@@ -8,8 +8,9 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 
-class CountryAdapter(context: Context, countries: ArrayList<Country>): BaseAdapter() {
-    val inflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+class CountryAdapter(context: Context, countries: ArrayList<Country>) : BaseAdapter() {
+    val inflater: LayoutInflater =
+        context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     val countries = countries
 
     override fun getCount(): Int {
@@ -17,7 +18,7 @@ class CountryAdapter(context: Context, countries: ArrayList<Country>): BaseAdapt
     }
 
     override fun getItem(position: Int): Any? {
-        return countries.get(position)
+        return countries[position]
     }
 
     override fun getItemId(position: Int): Long {
@@ -32,8 +33,9 @@ class CountryAdapter(context: Context, countries: ArrayList<Country>): BaseAdapt
         val view = inflater.inflate(R.layout.list_item, parent, false)
         val tvName = view.findViewById<TextView>(R.id.tvName)
         val ivFlag = view.findViewById<ImageView>(R.id.ivFlag)
-        tvName.text = countries.get(position).name
-        ivFlag.setImageResource(countries.get(position).flagId)
+        val country = countries[position]
+        tvName.text = country.name
+        ivFlag.setImageResource(country.flagId)
 
         return view
     }
