@@ -18,13 +18,14 @@ Uygulama projelerinin yanı sıra Android platformunun çalışma yapısını ve
 | [Android Context ve Uygulama Yaşam Döngüsü](.documents/android-context-and-application-lifecycle.md) | Context, Application, Activity ve Service kavramları                                    |
 | [Activity Yapısı ve Yaşam Döngüsü](.documents/activity-lifeycycle.md)                                | Activity lifecycle metotları ve yaşam döngüsü yönetimi                                  |
 | [Fragments](.documents/fragments.md)                                                                 | Fragment kullanımı, çoklu Fragment yerleşimleri ve Fragment yaşam döngüsü               |
+| [RecyclerView](.documents/recyclerview.md)                                                           | RecyclerView, Adapter, ViewHolder ve LayoutManager yapısı                               |
 
 ## Eğitimler
 
 | Eğitim                                              | Açıklama                                                                    |
 | --------------------------------------------------- | --------------------------------------------------------------------------- |
 | [Android Programlama 101](#android-programlama-101) | Giriş, tasarım işlemleri, standart yapılar ve kullanımları                  |
-| [Android Programlama 201](#android-programlama-201) | Listeleme yapıları ve listeleme yapıları üzerinde detaylı işlemler _(yakında)_          |
+| [Android Programlama 201](#android-programlama-201) | Listeleme yapıları ve listeleme yapıları üzerinde detaylı işlemler         |
 | [Android Programlama 301](#android-programlama-301) | Depolama, internet tabanlı işlemler, konum işlemleri ve arka plan işlemleri  _(yakında)_  |
 
 ## Android Programlama 101
@@ -68,10 +69,6 @@ Uygulama projelerinin yanı sıra Android platformunun çalışma yapısını ve
     </tr>
     <tr>
       <td colspan="2"><strong>Uygulama Çalışma Yapısı</strong></td>
-    </tr>
-    <tr>
-      <td>Android Çalışma Yapısı</td>
-      <td>Android Mimarisi ve Çalışma Yapısı</td>
     </tr>
     <tr>
       <td><a href="ActivityLifecycle/">Activity Lifecycle</a></td>
@@ -181,7 +178,44 @@ Uygulama projelerinin yanı sıra Android platformunun çalışma yapısını ve
 
 ## Android Programlama 201
 
-201 eğitimi kapsamında geliştirilen uygulamalar ve ilgili ders konuları bu bölümde listelenecektir.
+201 eğitimi kapsamında geliştirilen uygulamalar ve ilgili ders konuları aşağıda listelenmiştir.
+
+<table>
+  <thead>
+    <tr>
+      <th>App</th>
+      <th>Konu</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="SpinnerBasics/">Spinner Basics</a></td>
+      <td>Spinner, Adapter</td>
+    </tr>
+    <tr>
+      <td><a href="ListViewBasics/">ListView Basics</a></td>
+      <td>ListView</td>
+    </tr>
+    <tr>
+      <td><a href="CountryListView/">Country ListView</a></td>
+      <td>Custom Adapter Lab</td>
+    </tr>
+    <tr>
+      <td><a href="CountryRecyclerView/">Country RecyclerView</a></td>
+      <td>RecyclerView Lab<br>Sayfalama Lab<br>Filtreleme Lab</td>
+    </tr>
+  </tbody>
+</table>
+
+### Ele Alınan Konular
+
+- Spinner ve Adapter kullanımı
+- ListView ile listeleme
+- Custom Adapter geliştirme
+- RecyclerView ve ViewHolder yapısı
+- Liste verilerinin sayfalanması
+- Liste verilerinin filtrelenmesi
+
 
 **Genel konular:** Listeleme yapıları ve listeleme yapıları üzerinde detaylı işlemler.
 
