@@ -8,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
+// SharedPreferences, verilerimizin uygulama üzerinde
+// android işletim sistemi yönetiminde tutulmasını sağlar.
+
 // Ekranda koyu tema ve açık temanın seçilmesini sağlayacak buton olacak.
 // Bu butonlar aracılığı ile kullanıcı uygulamasının temasını seçebilecek.
 // Uygulama açıldığında kullanıcının teması ne ise arkaplan ona göre renklenecek.
